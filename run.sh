@@ -21,3 +21,6 @@ cat var/4.txt | python3 src/4_1.py
 
 printf 'rust 5.1: '
 cat var/5.txt | target/release/5_1
+
+printf 'rust 5.2: '
+cat var/5.txt | target/release/5_2
