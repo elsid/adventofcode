@@ -24,3 +24,6 @@ cat var/5.txt | target/release/5_1
 
 printf 'rust 5.2: '
 cat var/5.txt | target/release/5_2
+
+printf 'rust 6.1: '
+cat var/6.txt | target/release/6_1
