@@ -1,4 +1,4 @@
-all: 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1
+all: 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2
 
 1_1: rust_1_1
 1_2: rust_1_2
@@ -8,6 +8,7 @@ all: 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1
 5_1: rust_5_1
 5_2: rust_5_2
 6_1: rust_6_1
+6_2: rust_6_2
 
 python_1_1: src/1_1.py var/1.txt
 	cat var/1.txt | python3 src/1_1.py
@@ -36,10 +37,13 @@ rust_5_2: target/release/5_2 var/5.txt
 rust_6_1: target/release/6_1 var/6.txt
 	cat var/6.txt | target/release/6_1
 
+rust_6_2: target/release/6_2 var/6.txt
+	cat var/6.txt | target/release/6_2
+
 $(patsubst src/%.rs, target/release/%, $(wildcard src/*.rs)): $(wildcard src/%.rs)
 	@echo $(wildcard src/*.rs)
 	cargo build --release
 
-.PHONY: all 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 \
+.PHONY: all 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 \
 	python_1_1 python_2_1 python_3_1 python_4_1 \
-	rust_1_1 rust_1_2 rust_5_1 rust_5_2 rust_6_1
+	rust_1_1 rust_1_2 rust_5_1 rust_5_2 rust_6_1 rust_6_2
