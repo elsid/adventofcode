@@ -18,7 +18,7 @@ fn main() {
     let input = stdin();
     let parser = Parser::new();
     let max_distance = input.lock().lines()
-        .map(|line| parser.parse(&line.unwrap()[..]) )
+        .map(|line| parser.parse(&line.unwrap()[..]))
         .map(|reindeer| get_distance(&reindeer, 2503))
         .max().unwrap();
     println!("{}", max_distance);
