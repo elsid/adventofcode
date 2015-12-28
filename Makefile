@@ -1,4 +1,4 @@
-all: 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 10_1 10_2 14_1
+all: 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 7_1 10_1 10_2 14_1
 
 clean:
 	rm -rf target/release/*
@@ -12,6 +12,7 @@ clean:
 5_2: rust_5_2
 6_1: rust_6_1
 6_2: rust_6_2
+7_1: python_7_1
 10_1: rust_10_1
 10_2: rust_10_2
 14_1: rust_14_1
@@ -28,7 +29,10 @@ python_3_1: src/3_1.py var/3.txt
 python_4_1: src/4_1.py var/4.txt
 	cat var/4.txt | python3 src/4_1.py
 
-rust_1_1: target/release/1_1 var/1.txt src/1_1.rs
+python_7_1: src/7_1.py var/7.txt
+	cat var/7.txt | python3 src/7_1.py
+
+rust_1_1: target/release/1_1 var/1.txt
 	cat var/1.txt | target/release/1_1
 
 rust_1_2: target/release/1_2 var/1.txt src/1_2.rs
@@ -58,6 +62,6 @@ rust_14_1: target/release/14_1 var/14.txt src/14_1.rs
 $(patsubst src/%.rs, target/release/%, $(wildcard src/*.rs)): $(wildcard src/%.rs)
 	cargo build --release
 
-.PHONY: all 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 10_1 10_2 14_1 \
-	python_1_1 python_2_1 python_3_1 python_4_1 \
+.PHONY: all 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 7_1 10_1 10_2 14_1 \
+	python_1_1 python_2_1 python_3_1 python_4_1 python_7_1 \
 	rust_1_1 rust_1_2 rust_5_1 rust_5_2 rust_6_1 rust_6_2 rust_10_1 rust_10_2 rust_14_1
