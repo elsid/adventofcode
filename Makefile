@@ -12,7 +12,7 @@ clean:
 5_2: rust_5_2
 6_1: rust_6_1
 6_2: rust_6_2
-7_1: python_7_1
+7_1: rust_7_1
 7_2: python_7_2
 10_1: rust_10_1
 10_2: rust_10_2
@@ -54,6 +54,9 @@ rust_6_1: target/release/6_1 var/6.txt src/6_1.rs
 rust_6_2: target/release/6_2 var/6.txt src/6_2.rs
 	cat var/6.txt | target/release/6_2
 
+rust_7_1: target/release/7_1 var/7.txt src/7_1.rs
+	cat var/7.txt | target/release/7_1
+
 rust_10_1: target/release/10_1 var/10.txt src/10_1.rs
 	cat var/10.txt | target/release/10_1
 
@@ -68,4 +71,4 @@ $(patsubst src/%.rs, target/release/%, $(wildcard src/*.rs)): $(wildcard src/%.r
 
 .PHONY: all 1_1 1_2 2_1 3_1 4_1 5_1 5_2 6_1 6_2 7_1 7_2 10_1 10_2 14_1 \
 	python_1_1 python_2_1 python_3_1 python_4_1 python_7_1 python_7_2 \
-	rust_1_1 rust_1_2 rust_5_1 rust_5_2 rust_6_1 rust_6_2 rust_10_1 rust_10_2 rust_14_1
+	rust_1_1 rust_1_2 rust_5_1 rust_5_2 rust_6_1 rust_6_2 rust_7_1 rust_10_1 rust_10_2 rust_14_1
